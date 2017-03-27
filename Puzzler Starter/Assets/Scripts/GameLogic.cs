@@ -30,7 +30,7 @@ public class GameLogic : MonoBehaviour
         iTween.MoveTo(player,
             iTween.Hash(
                 "position", playPoint.transform.position,
-                "time", 4,
+                "time", 5,
                 "easetype", "linear"
             )
         );
@@ -49,7 +49,7 @@ public class GameLogic : MonoBehaviour
         iTween.MoveTo(player,
             iTween.Hash(
                 "position", restartPoint.transform.position,
-                "time", 4,
+                "time", 5,
                 "easetype", "linear"
             )
         );
