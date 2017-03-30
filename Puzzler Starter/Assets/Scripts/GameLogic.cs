@@ -12,7 +12,7 @@ public class GameLogic : MonoBehaviour
 
     public int puzzleLength = 5; //How many times we light up.  This is the difficulty factor.  The longer it is the more you have to memorize in-game.
     public float puzzleSpeed = 1f; //How many seconds between puzzle display pulses
-    private int[] puzzleOrder; //For now let's have 5 orbs
+    private int[] puzzleOrder; //Holds number of orbs in puzzle
 
     private int currentDisplayIndex = 0; //Temporary variable for storing the index when displaying the pattern
     public bool currentlyDisplayingPattern = true;
@@ -88,7 +88,7 @@ public class GameLogic : MonoBehaviour
     void displayPattern()
     { //Invoked repeating.
         currentlyDisplayingPattern = true; //Let us know were displaying the pattern
-        eventSystem.SetActive(false); //Disable gaze input events while we are displaying the pattern.
+        //eventSystem.SetActive(false); //Disable gaze input events while we are displaying the pattern.
 
         if (currentlyDisplayingPattern == true)
         { //If we are not finished displaying the pattern
@@ -127,7 +127,7 @@ public class GameLogic : MonoBehaviour
         iTween.MoveTo(player,
             iTween.Hash(
                 "position", startPoint.transform.position,
-                "time", 4,
+                "time", 2,
                 "easetype", "linear",
                 "oncomplete", "resetGame",
                 "oncompletetarget", this.gameObject
@@ -169,7 +169,7 @@ public class GameLogic : MonoBehaviour
 
     public void finishingFlourish()
     { //A nice visual flourish when the player wins
-        //this.GetComponent<AudioSource>().Play(); //Play the success audio
+        this.GetComponent<AudioSource>().Play(); //Play the success audio
         restartUI.SetActive(true);
         playerWon = true;
 
