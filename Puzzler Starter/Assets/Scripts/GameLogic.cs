@@ -13,6 +13,7 @@ public class GameLogic : MonoBehaviour
 
     public int puzzleLength = 5; //How many times we light up.  This is the difficulty factor.  The longer it is the more you have to memorize in-game.
     public float puzzleSpeed = 1f; //How many seconds between puzzle display pulses
+    public int puzzleDelay = 7; //Number of seconds before starting the puzzle.  Needs to be longer first time to allow travel from start.
     private int[] puzzleOrder; //For now let's have 5 orbs
 
     private int currentDisplayIndex = 0; //Temporary variable for storing the index when displaying the pattern
@@ -87,7 +88,7 @@ public class GameLogic : MonoBehaviour
             )
         );
         CancelInvoke("displayPattern");
-        InvokeRepeating("displayPattern", 3, puzzleSpeed); //Start running through the displaypattern function
+        InvokeRepeating("displayPattern", puzzleDelay, puzzleSpeed); //Start running through the displaypattern function
         currentSolveIndex = 0; //Set our puzzle index at 0
 
     }
@@ -149,6 +150,7 @@ public class GameLogic : MonoBehaviour
         startUI.SetActive(true);
         playerWon = false;
         generatePuzzleSequence(); //Generate the puzzle sequence for this playthrough.  
+        puzzleDelay = 7;
     }
 
     public void puzzleFailure()
@@ -156,6 +158,7 @@ public class GameLogic : MonoBehaviour
         Debug.Log("You've Failed, Resetting puzzle");
         FailAudioHolder.GetComponent<GvrAudioSource>().Play();
         currentSolveIndex = 0;
+        puzzleDelay = 3;
 
         startPuzzle();
 
