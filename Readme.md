@@ -1,7 +1,7 @@
 # Udacity Puzzler Project
 This project is part of the Udacity VR Nanodegree program, and was intended to help students learn how to use iterative testing to continuously check for issues while developing a VR app.  This app also makes use of interactive game objects to allow the user to initiate the puzzle, located inside a small dungeon, as well as to play an interactive memory game.  Once the user completes the puzzle, they then exit the dungeon, and can reset the game if they would like.
 
-![alt text](Puzzler Starter/Screenshots/Screenshot_LightingAndOrbs.png "In-game screenshot")
+![alt text](Puzzler%20Starter/Screenshots/Screenshot_LightingAndOrbs.png "In-game screenshot")
 
 ## Installation
 * If you own an Android phone, you can install the app by simply copying the `PuzzlerProject.apk` file from the **Build** directory onto your android device, and installing the apk by clicking on it from the file manager.
